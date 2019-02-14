@@ -1,4 +1,4 @@
-Project/Library/
+﻿Project/Library/
 Project/Logs/
 Project/Packages/
 Project/Temp/
@@ -11,3 +11,4 @@ Project/.vs/Project/v15/Server/sqlite3/storage.ide
 Project/.vs/Project/v15/Server/sqlite3/storage.ide-shm
 Project/.vs/
 Project/obj/
+Project/ProjectSettings/ProjectVersion.txt
