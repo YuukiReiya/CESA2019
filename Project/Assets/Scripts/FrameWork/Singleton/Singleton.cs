@@ -23,6 +23,11 @@ namespace DAGASIScripts
                 Destroy(gameObject);
             }
         }
+
+        protected virtual void Reset()
+        {
+            gameObject.name = typeof(T).Name;
+        }
     }
 
     public static class Singleton2<T> where T : MonoBehaviour

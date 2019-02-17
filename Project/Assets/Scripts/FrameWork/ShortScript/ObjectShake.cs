@@ -6,7 +6,6 @@ namespace DAGASIScripts
 
     public class ObjectShake : MonoBehaviour
     {
-
         [SerializeField]
         float shake_decay = 0.002f;
         [SerializeField]
