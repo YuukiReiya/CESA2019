@@ -1,6 +1,9 @@
 ﻿//https://qiita.com/k_yanase/items/fb64ccfe1c14567a907d
 //https://doruby.jp/users/ino/entries/%E3%80%90C--Unity%E3%80%91LINQ%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F%E3%82%89%E3%81%A8%E3%81%A6%E3%82%82%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E3%81%A0%E3%81%A3%E3%81%9F
 //上記のサイト参考
+/// <summary>
+/// 番場宥輝
+/// </summary>
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;

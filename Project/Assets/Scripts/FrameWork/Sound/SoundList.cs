@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿/// <summary>
+/// 番場宥輝
+/// </summary>
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
