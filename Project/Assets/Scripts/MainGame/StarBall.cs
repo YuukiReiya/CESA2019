@@ -10,7 +10,8 @@ namespace MainGame.Player
 
         [SerializeField]
         float maxSpeed = 10f;
-
+        [SerializeField]
+        float minSpeed = 1f;
         private void Start()
         {
             rigid = GetComponentInParent<Rigidbody>();
@@ -21,6 +22,10 @@ namespace MainGame.Player
             if(rigid.velocity.sqrMagnitude >= maxSpeed * maxSpeed)
             {
                 rigid.velocity = rigid.velocity.normalized * maxSpeed;
+            }
+            if (rigid.velocity.sqrMagnitude <= minSpeed * minSpeed)
+            {
+                rigid.velocity = rigid.velocity.normalized * minSpeed;
             }
         }
 
