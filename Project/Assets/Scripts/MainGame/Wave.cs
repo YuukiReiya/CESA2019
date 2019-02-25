@@ -39,7 +39,7 @@ namespace MainGame.Wave
                 Collider[] hits = Physics.OverlapSphere(transform.position, waveSize);
                 foreach (var hit in hits)
                 {
-                    var v = hit.GetComponent<Player.StarBall>();
+                    var v = hit.GetComponentInParent<Player.StarBall>();
                     if (v == null) continue;
                     Vector3 vec = (v.transform.position - transform.position).normalized;
                     v.rigid.AddForce(vec * addForcePower);

@@ -8,9 +8,20 @@ namespace MainGame.Player
     {
         public Rigidbody rigid { get; private set; }
 
+        [SerializeField]
+        float maxSpeed = 10f;
+
         private void Start()
         {
             rigid = GetComponentInParent<Rigidbody>();
+        }
+
+        private void FixedUpdate()
+        {
+            if(rigid.velocity.sqrMagnitude >= maxSpeed * maxSpeed)
+            {
+                rigid.velocity = rigid.velocity.normalized * maxSpeed;
+            }
         }
 
         private void OnCollisionEnter(Collision collision)
