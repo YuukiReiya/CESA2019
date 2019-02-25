@@ -30,8 +30,8 @@ namespace MainGame.Wave
             float waveSize = 0;
             while (count < waveTime)
             {
-                count += Time.deltaTime;
-                waveSize += waveSpeed * Time.deltaTime;
+                count += UnityEngine.Time.deltaTime;
+                waveSize += waveSpeed * UnityEngine.Time.deltaTime;
                 lineRenderer.positionCount = CIRCLE_SHARP;
                 lineRenderer.SetPositions(DAGASIScripts.ObjectArrangement.CircleDeployXY(CIRCLE_SHARP - 1, waveSize));
                 lineRenderer.SetPosition(CIRCLE_SHARP - 1, Vector3.up * waveSize);
