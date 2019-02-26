@@ -27,36 +27,15 @@ namespace MainGame.Player
         private const int CLICK_KEYCODE = 0;
 
         //  カーソルの移動制限
-        private const float HORIZONTAL_LIMIT = 12;
-        private const float VERTICLE_LIMIT = 7;
+        private const float HORIZONTAL_LIMIT = 1f;
+        private const float VERTICLE_LIMIT = 1.2f;
 
         //private Vector3 
 
         // Update is called once per frame
         void Update()
         {
-            // CursorUpdate();
             Input();
-        }
-
-        public void CursorUpdate()
-        {
-            switch (controlMode)
-            {
-                case ControlMode.MOUSE:
-                    transform.position = DisplayAccess.Instance.GetMousePosInWindow();
-                    if (!UnityEngine.Input.GetMouseButtonDown(0)) break;
-                    PlayAction(Color.red);
-                    break;
-                case ControlMode.GAMEPAD_L:
-                    //PlayAction(Color.blue);
-                    break;
-                case ControlMode.GAMEPAD_R:
-                    //PlayAction(Color.green);
-                    break;
-            }
-
-
         }
 
         public void PlayAction(Color waveColor)
@@ -106,33 +85,7 @@ namespace MainGame.Player
                         Vector3 cast = GamePadController.Instance.LStick;
                         this.transform.position += cast;
 
-                        //  横画面限界
-                        if (this.transform.position.x > HORIZONTAL_LIMIT)
-                        {
-                            Vector3 tmp = this.transform.position;
-                            tmp.x = HORIZONTAL_LIMIT;
-                            this.transform.position = tmp;
-                        }
-                        else if (this.transform.position.x < -HORIZONTAL_LIMIT)
-                        {
-                            Vector3 tmp = this.transform.position;
-                            tmp.x = -HORIZONTAL_LIMIT;
-                            this.transform.position = tmp;
-                        }
-
-                        //  縦画面限界
-                        if (this.transform.position.y > VERTICLE_LIMIT)
-                        {
-                            Vector3 tmp = this.transform.position;
-                            tmp.y = VERTICLE_LIMIT;
-                            this.transform.position = tmp;
-                        }
-                        else if (this.transform.position.y < -VERTICLE_LIMIT)
-                        {
-                            Vector3 tmp = this.transform.position;
-                            tmp.y = -VERTICLE_LIMIT;
-                            this.transform.position = tmp;
-                        }
+                        transform.position = DisplayAccess.Instance.ClampDisplayArea(transform.position,HORIZONTAL_LIMIT,VERTICLE_LIMIT);
 
                         //  トリガー取得
                         if (!GamePadController.Instance.LB)
@@ -160,33 +113,7 @@ namespace MainGame.Player
                         Vector3 cast = GamePadController.Instance.RStick;
                         this.gameObject.transform.position += cast;
 
-                        //  横画面限界
-                        if (this.transform.position.x > HORIZONTAL_LIMIT)
-                        {
-                            Vector3 tmp = this.transform.position;
-                            tmp.x = HORIZONTAL_LIMIT;
-                            this.transform.position = tmp;
-                        }
-                        else if (this.transform.position.x < -HORIZONTAL_LIMIT)
-                        {
-                            Vector3 tmp = this.transform.position;
-                            tmp.x = -HORIZONTAL_LIMIT;
-                            this.transform.position = tmp;
-                        }
-
-                        //  縦画面限界
-                        if (this.transform.position.y > VERTICLE_LIMIT)
-                        {
-                            Vector3 tmp = this.transform.position;
-                            tmp.y = VERTICLE_LIMIT;
-                            this.transform.position = tmp;
-                        }
-                        else if (this.transform.position.y < -VERTICLE_LIMIT)
-                        {
-                            Vector3 tmp = this.transform.position;
-                            tmp.y = -VERTICLE_LIMIT;
-                            this.transform.position = tmp;
-                        }
+                        transform.position = DisplayAccess.Instance.ClampDisplayArea(transform.position, HORIZONTAL_LIMIT, VERTICLE_LIMIT);
 
                         //  トリガー取得
                         if (!GamePadController.Instance.RB)

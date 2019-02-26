@@ -97,6 +97,19 @@ namespace DAGASIScripts
             vector3 = accessCamera.ScreenToWorldPoint(Input.GetTouch(0).position);
             return true;
         }
+
+        public Vector2 ClampDisplayArea(Vector2 worldPos)
+        {
+            Vector2 min = accessCamera.ScreenToWorldPoint(Screen.safeArea.min);
+            Vector2 max = accessCamera.ScreenToWorldPoint(Screen.safeArea.max);
+            return new Vector2(Mathf.Clamp(worldPos.x, min.x, max.x), Mathf.Clamp(worldPos.y, min.y, max.y));
+        }
+        public Vector2 ClampDisplayArea(Vector2 worldPos,float xPadding,float yPadding)
+        {
+            Vector2 min = accessCamera.ScreenToWorldPoint(Screen.safeArea.min);
+            Vector2 max = accessCamera.ScreenToWorldPoint(Screen.safeArea.max);
+            return new Vector2(Mathf.Clamp(worldPos.x, min.x+xPadding, max.x - xPadding), Mathf.Clamp(worldPos.y, min.y + yPadding, max.y - yPadding));
+        }
     }
 
 }
